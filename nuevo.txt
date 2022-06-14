@@ -1,0 +1,3 @@
+primer commit seccion 12
+
+git add .
