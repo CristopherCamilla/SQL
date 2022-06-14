@@ -1,3 +1,5 @@
 primer commit seccion 12
 
 git add .
+git commit -m "hola que tal"
+git push origin main
