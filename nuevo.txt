@@ -3,3 +3,90 @@ primer commit seccion 12
 git add .
 git commit -m "hola que tal"
 git push origin main
+
+
+
+
+--------SQL----------
+
+CREATE TABLE Clientes( 
+    rut_cliente         NUMBER(11) NOT NULL, 
+    dv                  CHAR(1) NOT NULL, 
+    primer_nombre       VARCHAR2(250) NOT NULL, 
+    segundo_nombre      VARCHAR2(250), 
+    apellido_paterno    VARCHAR2(250) NOT NULL, 
+    apellido_materno    VARCHAR2(250), 
+    direccion           VARCHAR2(250) NOT NULL, 
+    fono                NUMBER NOT NULL,  
+    correo              VARCHAR2(250) NOT NULL, 
+    comuna_id           NUMBER NOT NULL 
+);
+
+ALTER TABLE Clientes ADD CONSTRAINT cliente_PK PRIMARY KEY (rut_cliente);
+
+CREATE TABLE Comunas( 
+    id_comuna NUMBER NOT NULL, 
+    nombre VARCHAR2(250) NOT NULL, 
+    provincia_id NUMBER NOT NULL 
+);
+
+ALTER TABLE Comunas ADD CONSTRAINT comuna_PK PRIMARY KEY (id_comuna);
+
+ALTER TABLE Clientes ADD CONSTRAINT comuna_FK FOREIGN KEY (comuna_id) 
+    REFERENCES Comunas (id_comuna);
+    
+CREATE TABLE Provincias(
+id_provincia    NUMBER NOT NULL,
+nombre          VARCHAR(250) NOT NULL, 
+region_id       NUMBER NOT NULL
+);
+
+
+ALTER TABLE Provincias ADD CONSTRAINT Provincia_PK PRIMARY KEY (id_provincia);
+
+ALTER TABLE Comunas ADD CONSTRAINT provincia_FK FOREIGN KEY (provincia_id)
+    REFERENCES provincias (id_provincia);
+
+CREATE TABLE Regiones(
+id_region       NUMBER NOT NULL,
+nombre          VARCHAR(250)NOT NULL  
+);
+
+ALTER TABLE Regiones ADD CONSTRAINT region_PK PRIMARY KEY (id_region);
+
+ALTER TABLE Provincias ADD CONSTRAINT region_FK FOREIGN KEY (region_id)
+    REFERENCES Regiones (id_region);
+
+--INGRSAR DATOS  EN TABLAS
+INSERT INTO Regiones VALUES (1,'ARICA');
+INSERT INTO Regiones VALUES (2,'IQUIQUE');
+
+--DATOS EN COMUNA
+
+INSERT INTO provincias VALUES (1,'parinacota',1);
+
+
+
+
+INSERT INTO COMUNAS VALUES (1,'ARICA',1);
+INSERT INTO COMUNAS VALUES (2,'CAMARONES',1);
+
+INSERT INTO CLIENTES VALUES (1,'P','alan','pedro','brito','delgado','sucasa123',555555,'alan.crito@casa.cl',1);
+
+
+
+
+
+select co.nombre
+from COMUNAS co;
+
+
+select * from clientes
+
+
+select cl.RUT_CLIENTE, cl.PRIMER_NOMBRE, cl.APELLIDO_PATERNO, cl.APELLIDO_MATERNO, comunas.nombre
+from clientes cl;
+
+join Comunas co ON (clientes.comuna_id = comunas.id_comuna)
+
+
