@@ -58,7 +58,7 @@ CREATE TABLE COMUNAS(
 CREATE TABLE CURRICULUMS(
     id_curriculum       NUMBER NOT NULL,
     curriculum          BLOB NOT NULL,
-    persona_id         NUMBER NOT NULL
+    persona_id          NUMBER NOT NULL
 );
 
 CREATE TABLE DISCAPACIDAD(
@@ -102,7 +102,7 @@ CREATE TABLE PERSONAS(
     rut                 NUMBER,
     dv                  NUMBER,
     fecha_creacion      DATE NOT NULL,
-    hora                DATE NOT NULL,
+    hora                VARCHAR2(250) NOT NULL,
     primer_nombre       VARCHAR2(250) NOT NULL,
     segundo_nombre      VARCHAR2(250),
     apellido_paterno    VARCHAR2(250) NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE REG_PAGOS(
 CREATE TABLE REG_SOLICITUD(
     id_solicitud        NUMBER NOT NULL,
     fecha_creacion      DATE NOT NULL,
-    hora                DATE NOT NULL,
+    hora                VARCHAR2(250) NOT NULL,
     estado_id           NUMBER NOT NULL,
     persona_id          NUMBER NOT NULL
 );
@@ -385,7 +385,7 @@ INSERT INTO COMUNAS VALUES (2,'CAMARONES',1);
 
 
 --PERSONA
-INSERT INTO PERSONAS VALUES (1,12345678,9,TO_DATE('22/JUN/2011','DD/MON/YY'),'21:00','JUANA','ROSA','MELO','MUÑOZ',TO_DATE('01/JUN/1984','DD/MON/YY'),'987654321123',950000,'AV SALVADOR ALLENDE 550',0,1,1,1,1,2,1,1);
+INSERT INTO PERSONAS VALUES (1,12345678,9,TO_DATE('22/06/2011','DD/MM/YY'),'21:00','JUANA','ROSA','MELO','MUÑOZ',TO_DATE('01/06/1984','DD/MM/YY'),'987654321123',950000,'AV SALVADOR ALLENDE 550',0,1,1,1,1,2,1,1);
 
 
 
