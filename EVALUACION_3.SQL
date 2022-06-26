@@ -141,6 +141,7 @@ CREATE TABLE REG_PAGOS(
     banco_id            NUMBER NOT NULL,
     persona_id          NUMBER NOT NULL
 );
+
 CREATE TABLE REG_SOLICITUD(
     id_solicitud        NUMBER NOT NULL,
     fecha_creacion      DATE NOT NULL,
@@ -148,5 +149,74 @@ CREATE TABLE REG_SOLICITUD(
     estado_id           NUMBER NOT NULL,
     persona_id          NUMBER NOT NULL
 );
+
+CREATE TABLE REGIONES(
+    id_region           NUMBER NOT NULL,
+    nombre_region       VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE REGISTRO_BENEFICIOS(
+   id_reg               NUMBER NOT NULL,
+   fecha_beneficio      DATE NOT NULL,
+   cant_usada           NUMBER NOT NULL,
+   beneficio_id         NUMBER NOT NULL,
+   persona_id           NUMBER NOT NULL
+);
+
+CREATE TABLE SINDICATO(
+    id_sindicato        NUMBER NOT NULL,
+    nombre              VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TELEFONOS(
+    id_telefono         NUMBER NOT NULL,
+    numero_telefono     NUMBER NOT NULL,
+    obs                 VARCHAR2(250) NOT NULL,
+    activo              CHAR(1) NOT NULL,
+    tipo_num            NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL
+);
+
+CREATE TABLE TIPO_BENEFICIO(
+    id_tipo_benef       NUMBER NOT NULL,
+    nombre_tipo_benef   VARCHAR2(250) NOT NULL                   
+);
+
+CREATE TABLE TIPO_NUMEROS(
+    id_tipo_num         NUMBER NOT NULL,
+    nombre_tipo         VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_PARENTESCOS(
+    id_tipo_parentesco  NUMBER NOT NULL,
+    nombre_parentesco   VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_TRANSPORTE(
+    id_transporte       NUMBER NOT NULL,
+    nombre_trans        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_VEHICULO(
+    id_tipo_vehiculo    NUMBER NOT NULL,
+    nom_tipo_veh        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE VEHICULOS(
+    id_vehiculo         NUMBER NOT NULL,
+    patente             VARCHAR2(250) NOT NULL,
+    num_chasis          NUMBER NOT NULL,
+    num_motor           NUMBER NOT NULL,
+    año                 NUMBER NOT NULL,
+    modelo_id           NUMBER NOT NULL,
+    color_id            NUMBER NOT NULL,
+    tipo_vehiculo_id    NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL,
+    prima_id            NUMBER NOT NULL,
+    marca_id            NUMBER NOT NULL
+);
+
+
+
 
 
