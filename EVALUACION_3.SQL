@@ -102,7 +102,7 @@ CREATE TABLE PERSONAS(
     rut                 NUMBER,
     dv                  NUMBER,
     fecha_creacion      DATE NOT NULL,
-    hora                TIME NOT NULL,
+    hora                DATE NOT NULL,
     primer_nombre       VARCHAR2(250) NOT NULL,
     segundo_nombre      VARCHAR2(250),
     apellido_paterno    VARCHAR2(250) NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE REG_PAGOS(
 CREATE TABLE REG_SOLICITUD(
     id_solicitud        NUMBER NOT NULL,
     fecha_creacion      DATE NOT NULL,
-    hora                TIME NOT NULL,
+    hora                DATE NOT NULL,
     estado_id           NUMBER NOT NULL,
     persona_id          NUMBER NOT NULL
 );
@@ -259,8 +259,6 @@ ALTER TABLE REG_SOLICITUD ADD CONSTRAINT SOLICITUD_PK PRIMARY KEY (id_solicitud)
 ALTER TABLE REGIONES ADD CONSTRAINT REGION_PK PRIMARY KEY (id_region);
 
 ALTER TABLE REGISTRO_BENEFICIOS ADD CONSTRAINT BENEFICIOS_PK PRIMARY KEY (id_reg);
-
-ALTER TABLE REGIONES ADD CONSTRAINT REGION_PK PRIMARY KEY (id_region);
 
 ALTER TABLE SINDICATO ADD CONSTRAINT SINDICATO_PK PRIMARY KEY (id_sindicato);
 
