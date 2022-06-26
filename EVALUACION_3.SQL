@@ -97,3 +97,56 @@ CREATE TABLE PAIS(
     nacionalidad_pais   VARCHAR2(250) NOT NULL
 );
 
+CREATE TABLE PERSONAS(
+    id_persona          NUMBER NOT NULL,
+    rut                 NUMBER,
+    dv                  NUMBER,
+    fecha_creacion      DATE NOT NULL,
+    hora                TIME NOT NULL,
+    primer_nombre       VARCHAR2(250) NOT NULL,
+    segundo_nombre      VARCHAR2(250),
+    apellido_paterno    VARCHAR2(250) NOT NULL,
+    apellido_materno    VARCHAR2(250),
+    fecha_nacimiento    DATE NOT NULL,
+    pasaporte           VARCHAR2(250),
+    sueldo              NUMBER NOT NULL,
+    direccion           VARCHAR2(250) NOT NULL,
+    es_discapacitado    CHAR(1) NOT NULL,
+    es_afiliado         CHAR(1) NOT NULL,
+    habilitado_ben      CHAR(1) NOT NULL,
+    pais_id             NUMBER NOT NULL,
+    comuna_id           NUMBER NOT NULL,
+    genero_id           NUMBER NOT NULL,
+    discapacidad_id     NUMBER NOT NULL,
+    sindicato_id        NUMBER NOT NULL
+);
+
+CREATE TABLE PROVINCIAS(
+    id_provincia        NUMBER NOT NULL,
+    nombre_provincia    VARCHAR2(250),
+    region_id           NUMBER NOT NULL
+);
+
+CREATE TABLE REG_PAGOS(
+    id_pago             NUMBER NOT NULL,
+    obs_pago            VARCHAR2(250) NOT NULL,
+    mes                 NUMBER NOT NULL,
+    año                 NUMBER NOT NULL,
+    valor_final         NUMBER NOT NULL,
+    abono_final         NUMBER NOT NULL,
+    fecha               DATE NOT NULL,
+    num_cheque          NUMBER NOT NULL,
+    clase_id            NUMBER NOT NULL,
+    forma_pago_id       NUMBER NOT NULL,
+    banco_id            NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL
+);
+CREATE TABLE REG_SOLICITUD(
+    id_solicitud        NUMBER NOT NULL,
+    fecha_creacion      DATE NOT NULL,
+    hora                TIME NOT NULL,
+    estado_id           NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL
+);
+
+
