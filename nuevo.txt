@@ -1,7 +1,7 @@
 primer commit seccion 12
 
 git add .
-git commit -m "hola que tal"
+git commit -m "SCRIPT EVALUACION 3 SQL"
 git push origin main
 
 
