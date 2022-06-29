@@ -130,7 +130,7 @@ CREATE TABLE PROVINCIAS(
 CREATE TABLE REG_PAGOS(
     id_pago             NUMBER NOT NULL,
     obs_pago            VARCHAR2(250) NOT NULL,
-    mes                 NUMBER NOT NULL,
+    mes                 VARCHAR2(250) NOT NULL,
     año                 NUMBER NOT NULL,
     valor_final         NUMBER NOT NULL,
     abono_final         NUMBER NOT NULL,
