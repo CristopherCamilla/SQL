@@ -1,0 +1,414 @@
+--creo las tablas por orden alfabetico
+
+CREATE TABLE Bancos(
+    id_banco            NUMBER NOT NULL,
+    nombre_banco        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE Beneficios(
+    id_beneficio        NUMBER NOT NULL,
+    nombre_beneficio    VARCHAR2(250) NOT NULL,
+    canti_max           NUMBER,
+    dcto                NUMBER,
+    tipo_benef_id       NUMBER NOT NULL,
+    transporte_id       NUMBER
+);
+
+CREATE TABLE CALCULO_PRIMAS(
+    id_prima            NUMBER NOT NULL,
+    nombre_prima        VARCHAR2(250) NOT NULL,
+    valor_prima         NUMBER NOT NULL,
+    dcto                NUMBER NOT NULL,
+    año                 NUMBER NOT NULL
+);
+
+CREATE TABLE CARGAS(
+    id_cargas           NUMBER NOT NULL,
+    rut                 NUMBER,
+    dv                  CHAR(1),
+    primer_nombre       VARCHAR2(250) NOT NULL,
+    segundo_nombre      VARCHAR2(250),
+    primer_apellido     VARCHAR2(250) NOT NULL,
+    segundo_apellido    VARCHAR2(250),
+    fecha_nacimiento    DATE NOT NULL,
+    pasaporte           VARCHAR2(250),
+    es_hijo             CHAR(1) NOT NULL,
+    es_pareja           CHAR(1) NOT NULL,
+    persona_id          NUMBER NOT NULL,
+    tipo_parentesco_id  NUMBER NOT NULL
+);
+
+CREATE TABLE CLASE_PAGO(
+    id_clase            NUMBER NOT NULL,
+    nombre_pago         VARCHAR2(250) NOT NULL,
+    valor               NUMBER NOT NULL
+);
+
+CREATE TABLE COLORES(
+    id_color            NUMBER NOT NULL,
+    color               VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE COMUNAS(
+    id_comuna           NUMBER NOT NULL,
+    nombre_comuna       VARCHAR2(250) NOT NULL,
+    provinvia_id        NUMBER NOT NULL
+);
+
+CREATE TABLE CURRICULUMS(
+    id_curriculum       NUMBER NOT NULL,
+    curriculum          BLOB NOT NULL,
+    estado              CHAR(1) NOT NULL,
+    fecha               DATE NOT NULL,      
+    persona_id          NUMBER NOT NULL
+);
+
+CREATE TABLE DISCAPACIDAD(
+    id_discapacidad     NUMBER NOT NULL,
+    nombre_discapacidad VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE ESTADO_SOLICITUD(
+    id_estado           NUMBER NOT NULL,
+    nombre_estado       VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE FORMA_PAGOS(
+    id_forma_pago       NUMBER NOT NULL,
+    tipo_pago           VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE GENERO(
+    id_genero           NUMBER NOT NULL,
+    nombre_genero       VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE MARCAS(
+    id_marca            NUMBER NOT NULL,
+    nombre_marca        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE MODELOS(
+    id_modelo           NUMBER NOT NULL,
+    nombre_mod          VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE NACIONALIDAD(
+    id_nacionalidad     NUMBER NOT NULL,
+    nombre_nacionalidad VARCHAR2(250) NOT NULL,
+    nombre_pais         VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE PERSONAS(
+    id_persona          NUMBER NOT NULL,
+    rut                 NUMBER,
+    dv                  CHAR(1),
+    fecha_creacion      DATE NOT NULL,
+    hora                VARCHAR2(250) NOT NULL,
+    primer_nombre       VARCHAR2(250) NOT NULL,
+    segundo_nombre      VARCHAR2(250),
+    apellido_paterno    VARCHAR2(250) NOT NULL,
+    apellido_materno    VARCHAR2(250),
+    fecha_nacimiento    DATE NOT NULL,
+    pasaporte           VARCHAR2(250),
+    sueldo              NUMBER NOT NULL,
+    direccion           VARCHAR2(250) NOT NULL,
+    es_discapacitado    CHAR(1) NOT NULL,
+    es_afiliado         CHAR(1) NOT NULL,
+    habilitado_ben      CHAR(1) NOT NULL,
+    nacionalidad_id     NUMBER NOT NULL,
+    comuna_id           NUMBER NOT NULL,
+    genero_id           NUMBER NOT NULL,
+    discapacidad_id     NUMBER,
+    empresa_id          NUMBER NOT NULL
+);
+
+CREATE TABLE PROVINCIAS(
+    id_provincia        NUMBER NOT NULL,
+    nombre_provincia    VARCHAR2(250),
+    region_id           NUMBER NOT NULL
+);
+
+CREATE TABLE REG_PAGOS(
+    id_pago             NUMBER NOT NULL,
+    obs_pago            VARCHAR2(250) NOT NULL,
+    mes                 VARCHAR2(250) NOT NULL,
+    año                 NUMBER NOT NULL,
+    valor_final         NUMBER NOT NULL,
+    abono_final         NUMBER NOT NULL,
+    fecha               DATE NOT NULL,
+    num_cheque          NUMBER,
+    clase_id            NUMBER NOT NULL,
+    forma_pago_id       NUMBER NOT NULL,
+    banco_id            NUMBER,
+    persona_id          NUMBER NOT NULL
+);
+
+CREATE TABLE REG_SOLICITUD(
+    id_solicitud        NUMBER NOT NULL,
+    fecha_creacion      DATE NOT NULL,
+    hora                VARCHAR2(250) NOT NULL,
+    estado_id           NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL
+);
+
+CREATE TABLE REGIONES(
+    id_region           NUMBER NOT NULL,
+    nombre_region       VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE REGISTRO_BENEFICIOS(
+   id_reg               NUMBER NOT NULL,
+   fecha_beneficio      DATE NOT NULL,
+   cant_usada           NUMBER NOT NULL,
+   beneficio_id         NUMBER NOT NULL,
+   persona_id           NUMBER NOT NULL
+);
+
+CREATE TABLE EMPRESA(
+    id_empresa          NUMBER NOT NULL,
+    nombre              VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TELEFONOS(
+    id_telefono         NUMBER NOT NULL,
+    numero_telefono     NUMBER NOT NULL,
+    obs                 VARCHAR2(250) NOT NULL,
+    activo              CHAR(1) NOT NULL,
+    tipo_num_id         NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL
+);
+
+CREATE TABLE TIPO_BENEFICIO(
+    id_tipo_benef       NUMBER NOT NULL,
+    nombre_tipo_benef   VARCHAR2(250) NOT NULL                   
+);
+
+CREATE TABLE TIPO_NUMEROS(
+    id_tipo_num         NUMBER NOT NULL,
+    nombre_tipo         VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_PARENTESCOS(
+    id_tipo_parentesco  NUMBER NOT NULL,
+    nombre_parentesco   VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_TRANSPORTE(
+    id_transporte       NUMBER NOT NULL,
+    nombre_trans        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE TIPO_VEHICULO(
+    id_tipo_vehiculo    NUMBER NOT NULL,
+    nom_tipo_veh        VARCHAR2(250) NOT NULL
+);
+
+CREATE TABLE VEHICULOS(
+    id_vehiculo         NUMBER NOT NULL,
+    patente             VARCHAR2(250) NOT NULL,
+    num_chasis          NUMBER NOT NULL,
+    num_motor           NUMBER NOT NULL,
+    año                 NUMBER NOT NULL,
+    modelo_id           NUMBER NOT NULL,
+    color_id            NUMBER NOT NULL,
+    tipo_vehiculo_id    NUMBER NOT NULL,
+    persona_id          NUMBER NOT NULL,
+    prima_id            NUMBER NOT NULL,
+    marca_id            NUMBER NOT NULL
+);
+
+--creacion de primay key
+
+ALTER TABLE BANCOS ADD CONSTRAINT banco_PK PRIMARY KEY (id_banco);
+
+ALTER TABLE BENEFICIOS ADD CONSTRAINT beneficio_PK PRIMARY KEY (id_beneficio);
+
+ALTER TABLE CALCULO_PRIMAS ADD CONSTRAINT PRIMAS_PK PRIMARY KEY (id_prima);
+
+ALTER TABLE CARGAS ADD CONSTRAINT CARGA_PK PRIMARY KEY (id_cargas);
+
+ALTER TABLE CLASE_PAGO ADD CONSTRAINT CLASE_PAGO_PK PRIMARY KEY (id_clase);
+
+ALTER TABLE COLORES ADD CONSTRAINT COLOR_PK PRIMARY KEY (id_color);
+
+ALTER TABLE COMUNAS ADD CONSTRAINT COMUNA_PK PRIMARY KEY (id_comuna);
+
+ALTER TABLE CURRICULUMS ADD CONSTRAINT CURRICULUM_PK PRIMARY KEY (id_curriculum);
+
+ALTER TABLE DISCAPACIDAD ADD CONSTRAINT DISCAPACIDAD_PK PRIMARY KEY (id_discapacidad);
+
+ALTER TABLE ESTADO_SOLICITUD ADD CONSTRAINT ESTADO_SOLICITUD_PK PRIMARY KEY (id_estado);
+
+ALTER TABLE FORMA_PAGOS ADD CONSTRAINT FORMA_PAGO_PK PRIMARY KEY (id_forma_pago);
+
+ALTER TABLE GENERO ADD CONSTRAINT GENERO_PK PRIMARY KEY (id_genero);
+
+ALTER TABLE MARCAS ADD CONSTRAINT MARCA_PK PRIMARY KEY (id_marca);
+
+ALTER TABLE MODELOS ADD CONSTRAINT MODELO_PK PRIMARY KEY (id_modelo);
+
+ALTER TABLE NACIONALIDAD ADD CONSTRAINT NACIONALIDAD_PK PRIMARY KEY (id_nacionalidad);
+
+ALTER TABLE PERSONAS ADD CONSTRAINT PERSONA_PK PRIMARY KEY (id_persona);
+
+ALTER TABLE PROVINCIAS ADD CONSTRAINT PROVINCIA_PK PRIMARY KEY (id_provincia);
+
+ALTER TABLE REG_PAGOS ADD CONSTRAINT PAGO_PK PRIMARY KEY (id_pago);
+
+ALTER TABLE REG_SOLICITUD ADD CONSTRAINT SOLICITUD_PK PRIMARY KEY (id_solicitud);
+
+ALTER TABLE REGIONES ADD CONSTRAINT REGION_PK PRIMARY KEY (id_region);
+
+ALTER TABLE REGISTRO_BENEFICIOS ADD CONSTRAINT BENEFICIOS_PK PRIMARY KEY (id_reg);
+
+ALTER TABLE EMPRESA ADD CONSTRAINT EMPRESA_PK PRIMARY KEY (id_empresa);
+
+ALTER TABLE TELEFONOS ADD CONSTRAINT TELEFONO_PK PRIMARY KEY (id_telefono);
+
+ALTER TABLE TIPO_BENEFICIO ADD CONSTRAINT TIP_BENEF_PK PRIMARY KEY (id_tipo_benef);
+
+ALTER TABLE TIPO_NUMEROS ADD CONSTRAINT TIP_NUM_PK PRIMARY KEY (id_tipo_num);
+
+ALTER TABLE TIPO_PARENTESCOS ADD CONSTRAINT TIP_PARENTESCO_PK PRIMARY KEY (id_tipo_parentesco);
+
+ALTER TABLE TIPO_TRANSPORTE ADD CONSTRAINT TIP_TRANSP_PK PRIMARY KEY (id_transporte);
+
+ALTER TABLE TIPO_VEHICULO ADD CONSTRAINT TIP_VEHICULO_PK PRIMARY KEY (id_tipo_vehiculo);
+
+ALTER TABLE VEHICULOS ADD CONSTRAINT VEHICULO_PK PRIMARY KEY (id_vehiculo);
+
+
+--CREAMOS LAS FOREIGN KEY
+
+--beneficios
+ALTER TABLE BENEFICIOS ADD CONSTRAINT TIP_BENEF_FK FOREIGN KEY (tipo_benef_id) 
+    REFERENCES TIPO_BENEFICIO (id_tipo_benef);
+
+ALTER TABLE BENEFICIOS ADD CONSTRAINT TIP_TRANS_FK FOREIGN KEY (transporte_id) 
+    REFERENCES TIPO_TRANSPORTE (id_transporte);
+
+--cargas
+ALTER TABLE CARGAS ADD CONSTRAINT cargas_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+ALTER TABLE CARGAS ADD CONSTRAINT tipo_parentesco_FK FOREIGN KEY (tipo_parentesco_id) 
+    REFERENCES TIPO_PARENTESCOS (id_tipo_parentesco);
+
+--curricumun
+ALTER TABLE CURRICULUMS ADD CONSTRAINT curriculum_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+--personas
+ALTER TABLE PERSONAS ADD CONSTRAINT nacionalidad_FK FOREIGN KEY (nacionalidad_id) 
+    REFERENCES NACIONALIDAD (id_nacionalidad);
+ALTER TABLE PERSONAS ADD CONSTRAINT comuna_FK FOREIGN KEY (comuna_id) 
+    REFERENCES COMUNAS (id_comuna);
+ALTER TABLE PERSONAS ADD CONSTRAINT genero_FK FOREIGN KEY (genero_id) 
+    REFERENCES GENERO (id_genero);
+ALTER TABLE PERSONAS ADD CONSTRAINT discapacidad_FK FOREIGN KEY (discapacidad_id) 
+    REFERENCES DISCAPACIDAD (id_discapacidad);
+ALTER TABLE PERSONAS ADD CONSTRAINT empresa_FK FOREIGN KEY (empresa_id) 
+    REFERENCES EMPRESA (id_empresa);
+
+--provincia
+ALTER TABLE PROVINCIAS ADD CONSTRAINT region_FK FOREIGN KEY (region_id) 
+    REFERENCES REGIONES (id_region);
+
+--registro de pago
+ALTER TABLE REG_PAGOS ADD CONSTRAINT clase_FK FOREIGN KEY (clase_id) 
+    REFERENCES CLASE_PAGO (id_clase);
+ALTER TABLE REG_PAGOS ADD CONSTRAINT forma_pago_FK FOREIGN KEY (forma_pago_id) 
+    REFERENCES FORMA_PAGOS (id_forma_pago);
+ALTER TABLE REG_PAGOS ADD CONSTRAINT banco_FK FOREIGN KEY (banco_id) 
+    REFERENCES BANCOS (id_banco);
+ALTER TABLE REG_PAGOS ADD CONSTRAINT pagos_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+--REGISTRO SOLICITUD
+ALTER TABLE REG_SOLICITUD ADD CONSTRAINT estado_FK FOREIGN KEY (estado_id) 
+    REFERENCES ESTADO_SOLICITUD (id_estado);
+ALTER TABLE REG_SOLICITUD ADD CONSTRAINT solicitud_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+--REGISTRO BENEFICIOS
+ALTER TABLE REGISTRO_BENEFICIOS ADD CONSTRAINT beneficio_FK FOREIGN KEY (beneficio_id) 
+    REFERENCES BENEFICIOS (id_beneficio);
+ALTER TABLE REGISTRO_BENEFICIOS ADD CONSTRAINT beneficios_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+--TELEFONOS
+ALTER TABLE TELEFONOS ADD CONSTRAINT tipo_num_FK FOREIGN KEY (tipo_num_id) 
+    REFERENCES TIPO_NUMEROS (id_tipo_num);
+ALTER TABLE TELEFONOS ADD CONSTRAINT telefono_persona_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+
+--vehiculo
+ALTER TABLE VEHICULOS ADD CONSTRAINT modelo_FK FOREIGN KEY (modelo_id) 
+    REFERENCES MODELOS (id_modelo);
+ALTER TABLE VEHICULOS ADD CONSTRAINT color_FK FOREIGN KEY (color_id) 
+    REFERENCES COLORES (id_color);
+ALTER TABLE VEHICULOS ADD CONSTRAINT tip_vehiculo_FK FOREIGN KEY (tipo_vehiculo_id) 
+    REFERENCES TIPO_VEHICULO (id_tipo_vehiculo);
+ALTER TABLE VEHICULOS ADD CONSTRAINT vehiculo_personas_FK FOREIGN KEY (persona_id) 
+    REFERENCES PERSONAS (id_persona);
+ALTER TABLE VEHICULOS ADD CONSTRAINT calculo_prima_FK FOREIGN KEY (prima_id) 
+    REFERENCES CALCULO_PRIMAS (id_prima);
+ALTER TABLE VEHICULOS ADD CONSTRAINT marca_FK FOREIGN KEY (marca_id) 
+    REFERENCES MARCAS (id_marca);
+
+--INGRESAR DATOS
+
+--TIPO BENEFICIO
+INSERT INTO TIPO_BENEFICIO VALUES (1,'salud');
+INSERT INTO TIPO_BENEFICIO VALUES (2,'deporte');
+INSERT INTO TIPO_BENEFICIO VALUES (3,'educacion');
+
+--tipo transporte
+INSERT INTO TIPO_TRANSPORTE VALUES (1,'MICROBUS')
+INSERT INTO TIPO_TRANSPORTE VALUES (2,'METRO')
+INSERT INTO TIPO_TRANSPORTE VALUES (3,'TREN')
+
+--BENEFICIOS
+INSERT INTO BENEFICIOS VALUES (1,'descuento medicamento',5,15,1,'')
+
+
+
+--rellenar EMPRESA
+INSERT INTO EMPRESA VALUES (1,'sindicado internacional de actores del cine y teatro');
+
+--rellenar NACIONALIDAD
+INSERT INTO NACIONALIDAD VALUES (1,'CHILENA','CHILE');
+
+--RELLENAR DISCAPACIDAD
+INSERT INTO DISCAPACIDAD VALUES (1,'SIN DISCAPACIDAD');
+
+--GENERO
+INSERT INTO GENERO VALUES (1,'MASCULINO');
+INSERT INTO GENERO VALUES (2,'FEMENINO');
+INSERT INTO GENERO VALUES (3,'NO INFORMA');
+
+--REGION
+INSERT INTO REGIONES VALUES (1,'ARICA-PARINACOTA');
+INSERT INTO REGIONES VALUES (2,'TARAPACA');
+
+--PROVINCIA
+INSERT INTO PROVINCIAS VALUES (1,'ARICA',1);
+INSERT INTO PROVINCIAS VALUES (2,'PARINACOTA',1);
+
+--COMUNA
+INSERT INTO COMUNAS VALUES (1,'ARICA',1);
+INSERT INTO COMUNAS VALUES (2,'CAMARONES',1);
+
+
+--PERSONA
+INSERT INTO PERSONAS VALUES (1,12345678,'K',TO_DATE('22/06/2011','DD/MM/YY'),'21:00','JUANA','ROSA','MELO','MUÑOZ',TO_DATE('01/06/1984','DD/MM/YY'),'987654321123',950000,'AV SALVADOR ALLENDE 550',0,1,1,1,1,2,1,1);
+INSERT INTO PERSONAS VALUES (1,87654321,'9',TO_DATE('04/07/2022','DD/MM/YY'),'23:13','ALAN','BRITO','DELAGADO','LOPEZ',TO_DATE('25/11/1984','DD/MM/YY'),'123454321123',1600000,'AV SALVADOR ALLENDE 550',0,1,1,1,1,1,1,1);
+
+
+
+
+
+
+
+
